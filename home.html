@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protein Elite - E-commerce</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- NAVBAR -->
+  <header class="bg-white shadow-md fixed w-full z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-bold text-yellow-500">ProteinElite</h1>
+      <button id="cartBtn" class="bg-black text-white px-4 py-2 rounded">🛒 Panier (<span id="cartCount">0</span>)</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="h-screen bg-gradient-to-r from-black to-gray-800 text-white flex flex-col justify-center items-center text-center px-4">
+    <h2 class="text-5xl font-bold mb-4">Boutique de Protéines</h2>
+    <p class="mb-6">Achetez facilement vos compléments alimentaires</p>
+  </section>
+
+  <!-- PRODUITS -->
+  <section class="py-20 max-w-6xl mx-auto px-6" id="products">
+    <h3 class="text-3xl font-bold text-center mb-12">Nos Produits</h3>
+    <div class="grid md:grid-cols-3 gap-10" id="productList"></div>
+  </section>
+
+  <!-- PANIER -->
+  <div id="cart" class="fixed right-0 top-0 w-80 h-full bg-white shadow-lg p-5 hidden flex-col">
+    <h3 class="text-xl font-bold mb-4">Panier</h3>
+    <div id="cartItems" class="flex-1"></div>
+    <p class="font-bold mt-4">Total: <span id="total">0</span> FCFA</p>
+    <button id="checkout" class="bg-yellow-500 w-full py-2 mt-4 rounded">Commander</button>
+  </div>
+
+  <!-- JS -->
+  <!-- <script>
+    const products = [
+      { id: 1, name: "Whey Protein", price: 25000, img: "https://via.placeholder.com/300" },
+      { id: 2, name: "Mass Gainer", price: 30000, img: "https://via.placeholder.com/300" },
+      { id: 3, name: "Protéine Vegan", price: 28000, img: "https://via.placeholder.com/300" }
+    ];
+
+    let cart = [];
+
+    const productList = document.getElementById("productList");
+    const cartItems = document.getElementById("cartItems");
+    const cartCount = document.getElementById("cartCount");
+    const total = document.getElementById("total");
+    const cartBox = document.getElementById("cart");
+
+    // afficher produits
+    products.forEach(p => {
+      productList.innerHTML += `
+        <div class="bg-white p-5 rounded shadow">
+          <img src="${p.img}" class="mb-4">
+          <h4 class="font-bold">${p.name}</h4>
+          <p>${p.price} FCFA</p>
+          <button onclick="addToCart(${p.id})" class="mt-3 bg-black text-white px-4 py-2 rounded">Ajouter</button>
+        </div>
+      `;
+    });
+
+    function addToCart(id) {
+      const product = products.find(p => p.id === id);
+      cart.push(product);
+      updateCart();
+    }
+
+    function updateCart() {
+      cartItems.innerHTML = "";
+      let sum = 0;
+
+      cart.forEach(item => {
+        sum += item.price;
+        cartItems.innerHTML += `<p>${item.name} - ${item.price} FCFA</p>`;
+      });
+
+      total.textContent = sum;
+      cartCount.textContent = cart.length;
+    }
+
+    // ouvrir panier
+    document.getElementById("cartBtn").addEventListener("click", () => {
+      cartBox.classList.toggle("hidden");
+    });
+
+    // commander (WhatsApp)
+    document.getElementById("checkout").addEventListener("click", () => {
+      let message = "Commande :%0A";
+      cart.forEach(item => {
+        message += `- ${item.name} (${item.price} FCFA)%0A`;
+      });
+      message += `Total: ${total.textContent} FCFA`;
+
+      window.open(`https://wa.me/221770000000?text=${message}`, "_blank");
+    });
+  </script> -->
+
+</body>
+</html>
